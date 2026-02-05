@@ -1,0 +1,5 @@
+login-state.json
+node_modules/
+test-results/
+.env
+*.spec.ts
