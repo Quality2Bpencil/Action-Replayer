@@ -1,7 +1,9 @@
 // login.ts
-import 'dotenv/config'; // 加载 .env
+import dotenv from 'dotenv';
 import { chromium } from '@playwright/test';
 import type { Browser, Page } from '@playwright/test';
+
+dotenv.config({ path: 'auth/.env' });
 
 const TARGET_URL = process.env.TARGET_URL;
 
@@ -30,7 +32,7 @@ if (!TARGET_URL) {
     });
   });
 
-  await page.context().storageState({ path: 'login-state.json' });
+  await page.context().storageState({ path: 'auth/login-state.json' });
   console.log('✅ 登录状态已保存到 login-state.json');
 
   await browser.close();
